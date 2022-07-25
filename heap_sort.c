@@ -1,13 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "swap.h"
 
-
-void swap(int *x, int *y){
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-
-}
 void criarHeap(int A[], int i, int n){
     int maior = i;
     int left = 2 * i + 1;
@@ -15,7 +7,7 @@ void criarHeap(int A[], int i, int n){
     if(left < n && A[left] > A[i]){
         maior = left;
     }
-    
+
     if(right < n && A[right] > A[maior]){
         maior = right;
     }
@@ -40,30 +32,3 @@ void heapSort(int A[], int n){
 
 }
 
-void printvector(int vector[], int size){
-    for(int i = 0; i < size; i++){
-        printf("%d ",vector[i]);
-    }
-    printf("\n");
-
-}
-
-void insertvector(int vector[], int size){
-    for(int i = 0; i < size; i++){
-        scanf("%d", &vector[i]);
-    }
-
-}
-
-int main(){
-
-    int n; 
-    scanf("%d",&n);
-    int *vetor = (int *) malloc(sizeof(int) * n);
-    insertvector(vetor, n);
-    heapSort(vetor,n);
-    printvector(vetor,n);
-
-    return 0;
-
-}
